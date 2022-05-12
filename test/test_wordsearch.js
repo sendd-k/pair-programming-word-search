@@ -4,7 +4,7 @@ const assert = chai.assert;
 const wordSearch = require('../wordsearch.js')
 
 describe("#wordSearch()", function() {
-  it("should return false if the word is not present", function() {
+  it("should return false if the word is not present horizontal", function() {
     const result = wordSearch([
       ['A', 'W', 'C', 'F', 'Q', 'U', 'A', 'L'],
       ['S', 'E', 'I', 'N', 'F', 'E', 'L', 'D'],
@@ -20,7 +20,7 @@ describe("#wordSearch()", function() {
     assert.isFalse(result);
   });
 
-  it("should return true if the word is present", function() {
+  it("should return true if the word is present horizontal", function() {
     const result = wordSearch([
       ['A', 'W', 'C', 'F', 'Q', 'U', 'A', 'L'],
       ['S', 'E', 'I', 'N', 'F', 'E', 'L', 'D'],
@@ -34,5 +34,35 @@ describe("#wordSearch()", function() {
     ], 'SEINFELD')
 
     assert.isTrue(result);
+  });
+  it("should return true if the word is present vertical", function() {
+    const result = wordSearch([
+      ['A', 'K', 'C', 'F', 'Q', 'U', 'A', 'L'],
+      ['S', 'E', 'I', 'G', 'F', 'F', 'L', 'E'],
+      ['Y', 'V', 'C', 'F', 'Q', 'U', 'A', 'L'],
+      ['H', 'I', 'J', 'T', 'E', 'V', 'R', 'G'],
+      ['W', 'N', 'C', 'S', 'Y', 'E', 'R', 'L'],
+      ['B', 'F', 'R', 'E', 'N', 'E', 'Y', 'B'],
+      ['U', 'B', 'T', 'W', 'A', 'P', 'A', 'I'],
+      ['O', 'D', 'C', 'A', 'K', 'U', 'A', 'S'],
+      ['E', 'Z', 'K', 'F', 'Q', 'U', 'A', 'L'],
+    ], 'KEVIN')
+
+    assert.isTrue(result);
+  });
+  it("should return false if the word is present vertical", function() {
+    const result = wordSearch([
+      ['A', 'H', 'C', 'F', 'Q', 'U', 'A', 'L'],
+      ['S', 'G', 'I', 'G', 'F', 'F', 'L', 'E'],
+      ['Y', 'V', 'C', 'F', 'Q', 'U', 'A', 'L'],
+      ['H', 'S', 'J', 'T', 'E', 'V', 'R', 'G'],
+      ['W', 'N', 'C', 'S', 'Y', 'E', 'R', 'L'],
+      ['B', 'F', 'R', 'E', 'N', 'E', 'Y', 'B'],
+      ['U', 'B', 'T', 'W', 'A', 'P', 'A', 'I'],
+      ['O', 'D', 'C', 'A', 'K', 'U', 'A', 'S'],
+      ['E', 'Z', 'K', 'F', 'Q', 'U', 'A', 'L'],
+    ], 'JAMES')
+
+    assert.isFalse(result);
   });
 });
